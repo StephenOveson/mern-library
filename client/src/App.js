@@ -7,10 +7,6 @@ import Navbar from './components/Navbar/Index'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 class App extends Component {
-  state = {
-    books: []
-  }
-
   render() {
     return (
       <>
