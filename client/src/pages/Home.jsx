@@ -16,9 +16,9 @@ class Home extends Component {
     handleInputChange = event => {
         const { name, value } = event.target
         this.setState({
-          [name]: value
+            [name]: value
         })
-      }
+    }
 
     getBooks = query => {
         API.getGoogleBooks(query).then(res => this.setState({ books: res.data.items }))
@@ -32,15 +32,18 @@ class Home extends Component {
 
     handleSave = event => {
         event.preventDefault()
-        const chosenBook = this.state.books.filter(book => book.id === event.target.id);
+        const chosenBook = this.state.books.filter(book => book.id === event.target.id)[0];
         console.log(chosenBook)
         const savedBook = {
-            title: chosenBook.title,
-            author: chosenBook.authors,
-            image:  chosenBook.thumbnail,
-            link:   chosenBook.link,
-            description: chosenBook.description
-        }    
+            id: chosenBook.id,
+            title: chosenBook.volumeInfo.title,
+            author: chosenBook.volumeInfo.authors,
+            image: chosenBook.volumeInfo.imageLinks.thumbnail,
+            link: chosenBook.volumeInfo.infoLink,
+            description: chosenBook.volumeInfo.description,
+            date: Date.now()
+        }
+        console.log(savedBook)
         this.saveBook(savedBook)
     }
 
@@ -53,7 +56,12 @@ class Home extends Component {
     render() {
         return (
             <>
-                <Search value={this.state.bookSearch} name="bookSearch" inputChange={this.handleInputChange} handleSubmit={this.handleSubmit} />
+                <Search
+                    value={this.state.bookSearch}
+                    name="bookSearch"
+                    inputChange={this.handleInputChange}
+                    handleSubmit={this.handleSubmit}
+                />
                 {this.state.books.map(results =>
                     <ResultCards
                         key={results.id}

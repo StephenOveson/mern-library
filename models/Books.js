@@ -3,10 +3,14 @@ let mongoose = require("mongoose");
 let Schema = mongoose.Schema;
 
 let BookSchema = new Schema({
-    title: {
+    googleId: {
         type: String,
         required: true,
         unique: true
+    },
+    title: {
+        type: String,
+        required: true
     },
     author: {
         type: String,
@@ -29,6 +33,10 @@ let BookSchema = new Schema({
         type: Boolean,
         required: true,
         default: false
+    },
+    Date: {
+        type: Date,
+        required: true
     }
 });
 

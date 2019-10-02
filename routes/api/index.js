@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const bookshelfRoutes = require('./bookshelf');
+const bookshelf = require('./bookshelf');
 
-router.use('/api/books', bookshelfRoutes);
+router.use('/books', bookshelf);
 
 module.exports = router;

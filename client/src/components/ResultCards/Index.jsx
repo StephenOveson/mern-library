@@ -16,7 +16,7 @@ const ResultCard = (props) => {
                         </div>
                         <div className="card-action">
                             <a href={props.link} target="_blank">Learn More</a>
-                            <a onClick={props.saveBook} id={props.id}>Save</a>
+                            <a href="#" onClick={props.saveBook} id={props.id}>Save</a>
                         </div>
                     </div>
                 </div>
