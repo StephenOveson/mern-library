@@ -6,7 +6,7 @@ const Search = (props) => {
         <div className="row">
             <div className="input-field col s12">
                 <input value={props.bookSearch} id="bookSearch" name={props.name} type="text" className="validate" onChange={props.inputChange} />
-                <label className="active" htmlFor="bookSearch">Type in the book you wish to find</label>
+                <label className="active" htmlFor="bookSearch">{props.searchLabel}</label>
                 <button className="btn waves-effect waves-light blue" type="submit" name="action" onClick={props.handleSubmit}>Submit</button>
             </div>
         </div>

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ResultCards from '../components/ResultCards/Index'
 import Search from '../components/Search/Index'
 import API from '../utils/API'
+import TitleCard from '../components/TitleCard'
 
 class Home extends Component {
     state = {
@@ -35,7 +36,7 @@ class Home extends Component {
         const chosenBook = this.state.books.filter(book => book.id === event.target.id)[0];
         console.log(chosenBook)
         const savedBook = {
-            id: chosenBook.id,
+            googleId: chosenBook.id,
             title: chosenBook.volumeInfo.title,
             author: chosenBook.volumeInfo.authors,
             image: chosenBook.volumeInfo.imageLinks.thumbnail,
@@ -59,6 +60,7 @@ class Home extends Component {
                 <Search
                     value={this.state.bookSearch}
                     name="bookSearch"
+                    searchLabel="Type in the book you wish to find"
                     inputChange={this.handleInputChange}
                     handleSubmit={this.handleSubmit}
                 />
@@ -69,9 +71,10 @@ class Home extends Component {
                         title={results.volumeInfo.title}
                         image={results.volumeInfo.imageLinks.thumbnail}
                         description={results.volumeInfo.description}
-                        author={results.volumeInfo.authors}
+                        author={results.volumeInfo.authors.join(", ")}
                         link={results.volumeInfo.infoLink}
-                        saveBook={this.handleSave}
+                        bookControl={this.handleSave}
+                        buttonText="Save"
                     />)
                 }
             </>

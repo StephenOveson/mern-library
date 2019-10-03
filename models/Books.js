@@ -13,7 +13,7 @@ let BookSchema = new Schema({
         required: true
     },
     author: {
-        type: String,
+        type: Array,
         required: true
     },
     link: {
@@ -34,7 +34,7 @@ let BookSchema = new Schema({
         required: true,
         default: false
     },
-    Date: {
+    date: {
         type: Date,
         required: true
     }
