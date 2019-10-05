@@ -15,7 +15,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/public"));
 }
 
-let MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/googlebooks"
+let MONGODB_URI = process.env.MONGODB_URI || "mongodb://spiritbr8ker:yellowisacolor1@ds129098.mlab.com:29098/heroku_80fhghtz"
 mongoose.connect(MONGODB_URI);
 
 // Define API routes here
