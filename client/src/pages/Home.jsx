@@ -34,7 +34,6 @@ class Home extends Component {
     handleSave = event => {
         event.preventDefault()
         const chosenBook = this.state.books.filter(book => book.id === event.target.id)[0];
-        console.log(chosenBook)
         const savedBook = {
             googleId: chosenBook.id,
             title: chosenBook.volumeInfo.title,
@@ -44,8 +43,8 @@ class Home extends Component {
             description: chosenBook.volumeInfo.description,
             date: Date.now()
         }
-        console.log(savedBook)
         this.saveBook(savedBook)
+        alert("Book Saved")
     }
 
     handleSubmit = event => {
