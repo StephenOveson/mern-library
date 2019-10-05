@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "./client/public")));
+  app.use("./client/public", express.static(path.join(__dirname, "./client/public")));
 }
 
 let MONGODB_URI = process.env.MONGODB_URI || "mongodb://spiritbr8ker:yellowisacolor1@ds129098.mlab.com:29098/heroku_80fhghtz"
